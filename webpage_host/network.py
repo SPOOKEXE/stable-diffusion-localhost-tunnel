@@ -9,7 +9,7 @@ from threading import Thread
 from http.server import BaseHTTPRequestHandler, HTTPServer
 
 DISPLAY_DIRECTORY = "D:\\Adt\\StableDiffusionNSFW\\stable-diffusion-webui\\outputs\\out"
-NGROK_CONNECTION = "https://3a653e8fe9ce.ngrok.app"
+NGROK_CONNECTION = "https://38c617a9286d.ngrok.app/"
 
 def string_to_bytes(string : str) -> bytes:
 	return bytes(string, "utf-8")
@@ -127,7 +127,7 @@ class LocalHost:
 		def __init__(self, webserver=None, server_closed_callback=None):
 			self.start(webserver=webserver, server_closed_callback=server_closed_callback)
 
-	def start_local_host(port=500) -> ServerThreadWrapper:
+	def start_local_host(port=8080) -> ServerThreadWrapper:
 		customThreadedResponder = LocalHost.ThreadedServerResponder
 		customThreadedResponder.webserver = None
 		LocalHost.webServer = HTTPServer(('localhost', port), customThreadedResponder)
